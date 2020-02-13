@@ -74,6 +74,11 @@ class Grid extends \Magento\Backend\Block\Widget\Grid
             $collection->addStoreFilter($storeId);
         }
 
+        $collection->addAttributeToFilter(
+            'status',
+            \Magento\Catalog\Model\Product\Attribute\Source\Status::STATUS_ENABLED
+        );
+
         $this->setCollection($collection);
         return parent::_prepareCollection();
     }
